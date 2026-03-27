@@ -6,409 +6,221 @@
 <title>Metric Cheat Sheet</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --red: #D0212A;
-    --cream: #F7F3EC;
-    --ink: #1A1A1A;
-    --muted: #7A7065;
-    --border: #D9D1C5;
-    --card: #FFFFFF;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
-  .page {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    border-bottom: 2.5px solid var(--ink);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  header .flag {
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  .subtitle {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .card {
-    background: var(--card);
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card table {
-    flex: 1;
-  }
-
-  .card.full {
-    grid-column: 1 / -1;
-  }
-
-  .card-header {
-    background: var(--ink);
-    color: white;
-    padding: 0.5rem 0.9rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .card-header span.icon {
-    font-size: 0.9rem;
-  }
-
-  .card-header.accent {
-    background: var(--red);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  td {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.88rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-
-  tr:last-child td {
-    border-bottom: none;
-  }
-
-  td.label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--muted);
-    width: 40%;
-  }
-
-  td.val {
-    font-weight: 500;
-  }
-
-  td.arrow {
-    color: var(--red);
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 0.45rem 0.3rem;
-    width: 1.5rem;
-  }
-
-  .highlight-row td {
-    background: #FFF8F8;
-    font-weight: 500;
-  }
-
-  .formula-box {
-    background: #F0F0F0;
-    border-top: 1px solid var(--border);
-    padding: 0.5rem 0.9rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  .formula-box strong {
-    color: var(--red);
-    font-weight: 500;
-  }
-
-  .tip {
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    border-left: 3px solid var(--red);
-    background: white;
-    border-radius: 0 6px 6px 0;
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  .tip strong {
-    color: var(--ink);
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-  }
-
-  footer {
-    margin-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    padding-top: 0.75rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--border);
-    text-align: center;
-    letter-spacing: 0.05em;
-  }
-
-  @media (max-width: 500px) {
-    .grid { grid-template-columns: 1fr; }
-    .card.full { grid-column: 1; }
-    header h1 { font-size: 1.5rem; }
-  }
-
-  @media print {
-    body { background: white; padding: 0.5rem; }
-    .card { break-inside: avoid; }
-  }
+:root {
+  --red: #D0212A;
+  --cream: #F7F3EC;
+  --ink: #1A1A1A;
+  --muted: #7A7065;
+  --border: #D9D1C5;
+  --card: #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+.page { max-width: 680px; margin: 0 auto; }
+header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 2.5px solid var(--ink);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
+.subtitle { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; margin-top: 0.2rem; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.card { background: var(--card); border: 1.5px solid var(--border); border-radius: 6px; display: flex; flex-direction: column; }
+.card.full { grid-column: 1 / -1; }
+.card-header { background: var(--ink); color: #fff; padding: 0.5rem 0.9rem; font-family: 'DM Mono'; font-size: 0.68rem; text-transform: uppercase; }
+.card-header.accent { background: var(--red); }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 0.45rem 0.9rem; font-size: 0.88rem; border-bottom: 1px solid var(--border); }
+td.label { font-family: 'DM Mono'; color: var(--muted); width: 40%; }
+td.arrow { color: var(--red); text-align: center; width: 1.5rem; }
+.formula-box {
+  background: #F0F0F0;
+  border-top: 1px solid var(--border);
+  padding: 0.5rem 0.9rem;
+  font-family: 'DM Mono';
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.converter-box {
+  padding: 0.75rem 0.9rem;
+  border-top: 1px solid var(--border);
+  font-family: 'DM Mono';
+  font-size: 0.8rem;
+}
+.converter-box select,
+.converter-box input {
+  width: 100%;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+footer {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  font-family: 'DM Mono';
+  font-size: 0.65rem;
+  text-align: center;
+}
 </style>
 </head>
 <body>
 <div class="page">
-
-  <header>
-    <div>
-      <h1>Metric Cheat Sheet</h1>
-      <div class="subtitle">Welcome to Canada — here's what the numbers mean</div>
-    </div>
-    <div class="flag">🍁</div>
-  </header>
-
-  <div class="grid">
-
-    <!-- Temperature -->
-    <div class="card full">
-      <div class="card-header accent"><span class="icon">🌡️</span> Temperature</div>
-      <table>
-        <tr>
-          <td class="label">Cold day</td>
-          <td class="val">14 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">−10 °C</td>
-        </tr>
-        <tr class="highlight-row">
-          <td class="label">Freezing</td>
-          <td class="val">32 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">0 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Cool</td>
-          <td class="val">50 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">10 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Comfortable</td>
-          <td class="val">68 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">20 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Warm</td>
-          <td class="val">77 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">25 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Hot</td>
-          <td class="val">95 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">35 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Body temp</td>
-          <td class="val">98.6 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">37 °C</td>
-        </tr>
-        <tr>
-          <td class="label">Boiling</td>
-          <td class="val">212 °F</td>
-          <td class="arrow">→</td>
-          <td class="val">100 °C</td>
-        </tr>
-      </table>
-      <div class="formula-box">
-        °F → °C: <strong>(°F − 32) × 5 ÷ 9</strong> &nbsp;|&nbsp; Quick trick: subtract 30, divide by 2
-      </div>
-    </div>
-
-    <!-- Distance -->
-    <div class="card">
-      <div class="card-header"><span class="icon">📏</span> Distance</div>
-      <table>
-        <tr>
-          <td class="label">1 inch</td>
-          <td class="val">2.54 cm</td>
-        </tr>
-        <tr>
-          <td class="label">1 foot</td>
-          <td class="val">30.5 cm</td>
-        </tr>
-        <tr>
-          <td class="label">1 yard</td>
-          <td class="val">0.91 m</td>
-        </tr>
-        <tr>
-          <td class="label">1 km</td>
-          <td class="val">0.62 miles</td>
-        </tr>
-        <tr>
-          <td class="label">1 mile</td>
-          <td class="val">1.6 km</td>
-        </tr>
-        <tr>
-          <td class="label">5 miles</td>
-          <td class="val">8 km</td>
-        </tr>
-      </table>
-      <div class="formula-box">
-        miles → km: <strong>× 1.6</strong> &nbsp;|&nbsp; km → miles: <strong>× 0.6</strong>
-      </div>
-    </div>
-
-    <!-- Speed -->
-    <div class="card">
-      <div class="card-header"><span class="icon">🚗</span> Speed</div>
-      <table>
-        <tr>
-          <td class="label">30 mph</td>
-          <td class="val">48 km/h</td>
-        </tr>
-        <tr>
-          <td class="label">50 mph</td>
-          <td class="val">80 km/h</td>
-        </tr>
-        <tr class="highlight-row">
-          <td class="label">60 mph</td>
-          <td class="val">100 km/h</td>
-        </tr>
-        <tr>
-          <td class="label">75 mph</td>
-          <td class="val">120 km/h</td>
-        </tr>
-        <tr>
-          <td class="label">100 km/h</td>
-          <td class="val">62 mph</td>
-        </tr>
-      </table>
-      <div class="formula-box">
-        mph → km/h: <strong>× 1.6</strong>
-      </div>
-    </div>
-
-    <!-- Weight -->
-    <div class="card">
-      <div class="card-header"><span class="icon">⚖️</span> Weight</div>
-      <table>
-        <tr>
-          <td class="label">1 oz</td>
-          <td class="val">28 g</td>
-        </tr>
-        <tr>
-          <td class="label">1 lb</td>
-          <td class="val">454 g</td>
-        </tr>
-        <tr>
-          <td class="label">2.2 lbs</td>
-          <td class="val">1 kg</td>
-        </tr>
-        <tr>
-          <td class="label">100 lbs</td>
-          <td class="val">45 kg</td>
-        </tr>
-        <tr>
-          <td class="label">150 lbs</td>
-          <td class="val">68 kg</td>
-        </tr>
-        <tr>
-          <td class="label">200 lbs</td>
-          <td class="val">91 kg</td>
-        </tr>
-      </table>
-      <div class="formula-box">
-        lbs → kg: <strong>÷ 2.2</strong> &nbsp;|&nbsp; kg → lbs: <strong>× 2.2</strong>
-      </div>
-    </div>
-
-    <!-- Volume -->
-    <div class="card">
-      <div class="card-header"><span class="icon">🧴</span> Volume</div>
-      <table>
-        <tr>
-          <td class="label">1 fl oz</td>
-          <td class="val">30 mL</td>
-        </tr>
-        <tr>
-          <td class="label">1 pint</td>
-          <td class="val">473 mL</td>
-        </tr>
-        <tr>
-          <td class="label">1 quart</td>
-          <td class="val">0.95 L</td>
-        </tr>
-        <tr>
-          <td class="label">1 L</td>
-          <td class="val">~0.26 gal</td>
-        </tr>
-        <tr>
-          <td class="label">1 gallon</td>
-          <td class="val">3.78 L</td>
-        </tr>
-        <tr>
-          <td class="label">Gas tank (avg)</td>
-          <td class="val">~50–70 L</td>
-        </tr>
-      </table>
-      <div class="formula-box">
-        gallons → litres: <strong>× 3.78</strong>
-      </div>
-    </div>
-
+<header>
+  <div>
+    <h1>Metric Cheat Sheet</h1>
+    <div class="subtitle">Welcome to Canada — here's what the numbers mean</div>
   </div>
+  <div>🍁</div>
+</header>
 
-<footer>printable · metric cheat sheet for new canadians</footer>
+<div class="grid">
+
+<!-- Temperature -->
+<div class="card full">
+  <div class="card-header accent">🌡️ Temperature</div>
+  <table>
+    <tr><td class="label">Cold day</td><td>14 °F</td><td class="arrow">→</td><td>−10 °C</td></tr>
+    <tr><td class="label">Freezing</td><td>32 °F</td><td class="arrow">→</td><td>0 °C</td></tr>
+    <tr><td class="label">Cool</td><td>50 °F</td><td class="arrow">→</td><td>10 °C</td></tr>
+    <tr><td class="label">Comfortable</td><td>68 °F</td><td class="arrow">→</td><td>20 °C</td></tr>
+    <tr><td class="label">Warm</td><td>77 °F</td><td class="arrow">→</td><td>25 °C</td></tr>
+    <tr><td class="label">Hot</td><td>95 °F</td><td class="arrow">→</td><td>35 °C</td></tr>
+    <tr><td class="label">Body temp</td><td>98.6 °F</td><td class="arrow">→</td><td>37 °C</td></tr>
+    <tr><td class="label">Boiling</td><td>212 °F</td><td class="arrow">→</td><td>100 °C</td></tr>
+  </table>
+  <div class="formula-box">F → C: (F − 32) × 5/9</div>
+  <div class="converter-box">
+    <div>Temperature Converter</div>
+    <select id="tempDirection">
+      <option value="fToC">°F → °C</option>
+      <option value="cToF">°C → °F</option>
+    </select>
+    <input type="number" id="tempInput" placeholder="Enter value">
+    <div id="tempResult"></div>
+  </div>
+</div>
+
+<!-- Distance -->
+<div class="card">
+  <div class="card-header">📏 Distance</div>
+  <table>
+    <tr><td class="label">1 inch</td><td>2.54 cm</td></tr>
+    <tr><td class="label">1 foot</td><td>30.5 cm</td></tr>
+    <tr><td class="label">1 yard</td><td>0.91 m</td></tr>
+    <tr><td class="label">1 mile</td><td>1.6 km</td></tr>
+    <tr><td class="label">5 miles</td><td>8 km</td></tr>
+  </table>
+  <div class="formula-box">miles → km: × 1.6</div>
+  <div class="converter-box">
+    <div>Distance Converter</div>
+    <select id="distanceDirection">
+      <option value="miToKm">miles → km</option>
+      <option value="kmToMi">km → miles</option>
+    </select>
+    <input type="number" id="distanceInput" placeholder="Enter value">
+    <div id="distanceResult"></div>
+  </div>
+</div>
+
+<!-- Speed -->
+<div class="card">
+  <div class="card-header">🚗 Speed</div>
+  <table>
+    <tr><td class="label">30 mph</td><td>48 km/h</td></tr>
+    <tr><td class="label">50 mph</td><td>80 km/h</td></tr>
+    <tr><td class="label">60 mph</td><td>100 km/h</td></tr>
+    <tr><td class="label">75 mph</td><td>120 km/h</td></tr>
+  </table>
+  <div class="formula-box">mph → km/h: × 1.6</div>
+  <div class="converter-box">
+    <div>Speed Converter</div>
+    <select id="speedDirection">
+      <option value="mphToKmh">mph → km/h</option>
+      <option value="kmhToMph">km/h → mph</option>
+    </select>
+    <input type="number" id="speedInput" placeholder="Enter value">
+    <div id="speedResult"></div>
+  </div>
+</div>
+
+<!-- Weight -->
+<div class="card">
+  <div class="card-header">⚖️ Weight</div>
+  <table>
+    <tr><td class="label">1 oz</td><td>28 g</td></tr>
+    <tr><td class="label">1 lb</td><td>454 g</td></tr>
+    <tr><td class="label">2.2 lbs</td><td>1 kg</td></tr>
+    <tr><td class="label">100 lbs</td><td>45 kg</td></tr>
+    <tr><td class="label">150 lbs</td><td>68 kg</td></tr>
+    <tr><td class="label">200 lbs</td><td>91 kg</td></tr>
+  </table>
+  <div class="formula-box">lbs → kg: ÷ 2.2</div>
+  <div class="converter-box">
+    <div>Weight Converter</div>
+    <select id="weightDirection">
+      <option value="lbsToKg">lbs → kg</option>
+      <option value="kgToLbs">kg → lbs</option>
+    </select>
+    <input type="number" id="weightInput" placeholder="Enter value">
+    <div id="weightResult"></div>
+  </div>
+</div>
+
+<!-- Volume -->
+<div class="card">
+  <div class="card-header">🧴 Volume</div>
+  <table>
+    <tr><td class="label">1 fl oz</td><td>30 mL</td></tr>
+    <tr><td class="label">1 pint</td><td>473 mL</td></tr>
+    <tr><td class="label">1 quart</td><td>0.95 L</td></tr>
+    <tr><td class="label">1 gallon</td><td>3.78 L</td></tr>
+    <tr><td class="label">15 gallons</td><td>~57 L</td></tr>
+  </table>
+  <div class="formula-box">gallons → litres: × 3.78</div>
+  <div class="converter-box">
+    <div>Volume Converter</div>
+    <select id="volumeDirection">
+      <option value="galToL">gallons → litres</option>
+      <option value="lToGal">litres → gallons</option>
+    </select>
+    <input type="number" id="volumeInput" placeholder="Enter value">
+    <div id="volumeResult"></div>
+  </div>
+</div>
 
 </div>
+
+<footer>printable · metric cheat sheet</footer>
+</div>
+
+<script>
+function setup(idInput,idSelect,idResult,fn){
+  const input=document.getElementById(idInput);
+  const select=document.getElementById(idSelect);
+  const result=document.getElementById(idResult);
+  function convert(){
+    const val=parseFloat(input.value);
+    if(isNaN(val)){result.textContent='';return;}
+    result.textContent=fn(val,select.value);
+  }
+  input.addEventListener('input',convert);
+  select.addEventListener('change',convert);
+}
+
+setup('tempInput','tempDirection','tempResult',(v,d)=>d==='fToC'?((v-32)*5/9).toFixed(2)+' °C':(v*9/5+32).toFixed(2)+' °F');
+setup('distanceInput','distanceDirection','distanceResult',(v,d)=>d==='miToKm'?(v*1.6).toFixed(2)+' km':(v/1.6).toFixed(2)+' miles');
+setup('speedInput','speedDirection','speedResult',(v,d)=>d==='mphToKmh'?(v*1.6).toFixed(2)+' km/h':(v/1.6).toFixed(2)+' mph');
+setup('weightInput','weightDirection','weightResult',(v,d)=>d==='lbsToKg'?(v/2.2).toFixed(2)+' kg':(v*2.2).toFixed(2)+' lbs');
+setup('volumeInput','volumeDirection','volumeResult',(v,d)=>d==='galToL'?(v*3.78).toFixed(2)+' L':(v/3.78).toFixed(2)+' gal');
+</script>
 </body>
 </html>
